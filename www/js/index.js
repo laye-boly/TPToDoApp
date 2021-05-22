@@ -1,9 +1,16 @@
+let tasks = [];
 function addTask() {
 	if(task.value.trim() != ""){
 
-		let listItem = document.createElement('li');
-		listItem.appendChild(document.createTextNode(task.value));
-		taskList.appendChild(listItem);
+		if(!tasks.includes(task.value)){
+			tasks = [...tasks, task.value];
+			let listItem = document.createElement('li');
+			listItem.appendChild(document.createTextNode(task.value));
+			taskList.appendChild(listItem);
+		}else{
+			alert("cet tâche existe déjà");
+		}
+
 
 		$("li").on('swiperight', function(){
 			// listItem.className =" task-done";
